@@ -39,6 +39,18 @@ def selection_sort(data):               #nejhorsi scenar az n**2
         serazeny_list = my_list
     return serazeny_list
 
+def bubble_sort(data):      #funkcni
+    """tvorba vzestupne serazeneho seznamu cisel"""
+    data = read_data(file_name="numbers.csv")
+    my_list_two = data["series_1"]
+    n = len(my_list_two)
+    for i in range(n - 1):
+        for num_idx in range(n - i - 1):
+            if my_list_two[num_idx] > my_list_two[num_idx + 1]:
+                my_list_two[num_idx], my_list_two[num_idx + 1] =\
+                    my_list_two[num_idx + 1], my_list_two[num_idx]
+    return my_list_two
+
 
 
 
@@ -52,4 +64,6 @@ if __name__ == '__main__':
     print(data)
     serazeny_list = selection_sort(data["series_1"])
     print(serazeny_list)
+    my_list_two = bubble_sort(data["series_1"])
+    print(my_list_two)
     main()
